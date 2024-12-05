@@ -14,6 +14,13 @@ function setup() {
   createCanvas(800, 600);
   background(255);
 
+  let refreshButton = createButton('Refresh Canvas');
+  refreshButton.style('font-size', '30px');
+  refreshButton.position(800, 900);
+  refreshButton.mousePressed(() => {
+    location.reload();
+  });
+
   if (table.getRowCount() > 3164) {
     for (let i = 3164; i < table.getRowCount(); i++) {
       let value1 = table.getNum(i, 'date');
@@ -39,7 +46,10 @@ function setup() {
 
 function draw() {
   image(bgImg, 0, 0, width, height);
-  
+  textSize(30);
+  fill('black');
+  textAlign(CENTER, TOP);
+  text('Price of Rice', width / 2, 10);
   visualizeData();
   for (let i = 0; i < bubblesArray.length; i++){
     let bubble = bubblesArray[i];
